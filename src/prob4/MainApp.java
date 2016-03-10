@@ -2,17 +2,18 @@ package prob4;
 
 public class MainApp {
 	public static void main(String[] args) {
-        try {
-            Stack stackTest = new MyStack(-1);
-
-            System.out.println("======================================");
-
-            Stack stack = new MyStack(3);
+            Stack stack = null;
+			try {
+				stack = new MyStack(3);
+	            //Stack stackTest = new MyStack(-1);
+			} catch (MyStackException e) {
+				System.out.println(e.toString());
+			}
             stack.push("Hello");
             stack.push("World");
             stack.push("!!!");
-            stack.push("java");
-            stack.push(".");
+            //stack.push("java");
+            //stack.push(".");
 
             while (!stack.isEmpty()) {
                 System.out.println(stack.pop());
@@ -20,13 +21,14 @@ public class MainApp {
 
             System.out.println("======================================");
 
-            stack = new MyStack(3);
+            try {
+				stack = new MyStack(3);
+			} catch (MyStackException e) {
+				System.out.println(e.toString());
+			}
             stack.push("Hello");
 
             System.out.println(stack.pop());
             System.out.println(stack.pop());
-        } catch (RuntimeException ex) {
-            System.out.println(ex.toString());
-        }
     }
 }
